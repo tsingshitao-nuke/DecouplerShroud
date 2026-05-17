@@ -15,9 +15,9 @@ PART
 	cost = 400
 	category = Coupling
 	subcategory = 0
-	title = #LOC_DecouplerShroud_7
-	manufacturer = #LOC_DecouplerShroud_8
-	description = #LOC_DecouplerShroud_9
+	title = ShroudedDecoupler
+	manufacturer = O.M.B. Demolition Enterprises
+	description = A Decoupler that can be covered completely by a Decoupler Shroud
 	attachRules = 1,0,1,1,0
 	mass = 0.04
 	dragModelType = default

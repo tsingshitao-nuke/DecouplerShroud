@@ -1,5 +1,4 @@
-using KSP.Localization;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UniversalStorage2;
 
@@ -9,8 +8,8 @@ namespace DecouplerShroud {
 		static Dictionary<string, ShroudTexture> shroudTextureDictionary;
 
 
-		public string name = Localizer.Format("#LOC_DecouplerShroud_6");
-        public string displayName = Localizer.Format("#LOC_DecouplerShroud_6");
+		public string name = "ERR";
+        public string displayName = "ERR";
 		public bool showInVAB = true;
 		public List<SurfaceTexture> textures;
 

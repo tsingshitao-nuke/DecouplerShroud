@@ -1,5 +1,12 @@
 Changelog
 
+0.9.1
+	Localization changes.  Current languages are:
+		English
+		Chinese
+		Spanish
+		French
+
 0.9.0
 	Updated version file to use github for new version info
 	Thanks to @JadeOfMaar for these changes:

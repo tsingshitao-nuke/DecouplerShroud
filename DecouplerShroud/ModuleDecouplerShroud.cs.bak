@@ -1,5 +1,4 @@
-using KSP.Localization;
-using System;
+﻿using System;
 using UnityEngine;
 using UniversalStorage2;
 
@@ -11,7 +10,7 @@ namespace DecouplerShroud
         float[] snapSizes = new float[] { .63f, 1.25f, 2.5f, 3.75f, 5f, 7.5f };
         int[] segmentCountLUT = new int[] { 1, 2, 3, 4, 6 };
         int[] collPerSegmentLUT = new int[] { 12, 6, 4, 3, 2 };
-        public static string DECOUPLERSHROUD_GO_NAME = Localizer.Format("#LOC_DecouplerShroud_2");
+        public static string DECOUPLERSHROUD_GO_NAME = "DecouplerShroud";
 
         [KSPField(isPersistant = true)]
         public int nSides = 24;
@@ -216,7 +215,7 @@ namespace DecouplerShroud
                         else
                         {
                             // The call to check for the DLL has to be OUTSIDE the method being called
-                            if (SpaceTuxUtility.HasMod.hasMod(Localizer.Format("#LOC_DecouplerShroud_1")))
+                            if (SpaceTuxUtility.HasMod.hasMod("UniversalStorage2"))
                                 US2Jettison();
                         }
                     }
@@ -516,7 +515,7 @@ namespace DecouplerShroud
                 SurfaceTexture surf = shroudTex.textures[i];
 
                 shroudMats[i] = Instantiate(surf.mat);
-                shroudMats[i].name = Localizer.Format("#LOC_DecouplerShroud_3") + i + ", " + segments + Localizer.Format("#LOC_DecouplerShroud_4");
+                shroudMats[i].name = "shroudMat: " + i + ", " + segments + " segments";
 
                 if (HighLogic.LoadedSceneIsEditor)
                 {
@@ -675,7 +674,7 @@ namespace DecouplerShroud
                 //Get local position of nodeWorldPos
                 Vector3 nodeRelativePos = transform.InverseTransformPoint(nodeWorldPos);
 
-                AttachNode topNode = part.FindAttachNode(Localizer.Format("#LOC_DecouplerShroud_5"));
+                AttachNode topNode = part.FindAttachNode("top");
                 if (topNode == null)
                     topNode = part.FindAttachNode("InnerNode");// NO_LOCALIZATION
 

@@ -1,5 +1,4 @@
-using KSP.Localization;
-using UnityEngine;
+﻿using UnityEngine;
 using UniversalStorage2;
 using SpaceTuxUtility;
 
@@ -64,7 +63,7 @@ namespace DecouplerShroud {
 
 		void US2EjectionForce()
 		{
-			if (SpaceTuxUtility.HasMod.hasMod(Localizer.Format("#LOC_DecouplerShroud_1")))
+			if (SpaceTuxUtility.HasMod.hasMod("UniversalStorage2"))
 			{
 				if (GetComponent<USDecouple>() != null)
 				{
