@@ -1,5 +1,9 @@
 Changelog
 
+0.9.1.1
+	Added missing localization values for PAW
+	Fixed bug introduced with previous changes causing a nullref in the editor when attaching a node
+
 0.9.1
 	Localization changes.  Current languages are:
 		English

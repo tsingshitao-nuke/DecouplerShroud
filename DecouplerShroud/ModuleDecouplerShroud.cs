@@ -137,6 +137,22 @@ namespace DecouplerShroud
                 shroudShaper = null;
             }
 
+            // Set up localization
+            DECOUPLERSHROUD_GO_NAME = Localizer.Format("#LOC_DecouplerShroud_2");
+
+            Fields[nameof(shroudEnabled)].guiName = Localizer.Format("#LOC_DecouplerShroud_2");
+            Fields[nameof(autoDetectSize)].guiName = Localizer.Format("#LOC_DecouplerShroud_10");
+
+            Fields[nameof(topWidth)].guiName = Localizer.Format("#LOC_DecouplerShroud_11");
+            Fields[nameof(botWidth)].guiName = Localizer.Format("#LOC_DecouplerShroud_12");
+            Fields[nameof(thickness)].guiName = Localizer.Format("#LOC_DecouplerShroud_13");
+            Fields[nameof(height)].guiName = Localizer.Format("#LOC_DecouplerShroud_14");
+            Fields[nameof(vertOffset)].guiName = Localizer.Format("#LOC_DecouplerShroud_15");
+            Fields[nameof(segmentIndex)].guiName = Localizer.Format("#LOC_DecouplerShroud_16");
+            Fields[nameof(textureIndex)].guiName = Localizer.Format("#LOC_DecouplerShroud_17");
+
+
+
             //Set up events
             part.OnEditorAttach += partReattached;
             part.OnEditorDetach += partDetached;
@@ -675,7 +691,7 @@ namespace DecouplerShroud
                 //Get local position of nodeWorldPos
                 Vector3 nodeRelativePos = transform.InverseTransformPoint(nodeWorldPos);
 
-                AttachNode topNode = part.FindAttachNode(Localizer.Format("#LOC_DecouplerShroud_5"));
+                AttachNode topNode = part.FindAttachNode("top");
                 if (topNode == null)
                     topNode = part.FindAttachNode("InnerNode");// NO_LOCALIZATION
 
