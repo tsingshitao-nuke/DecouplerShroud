@@ -92,7 +92,7 @@ namespace DecouplerShroud
 
         [KSPField(isPersistant = true)]
         public bool jettisoned = false;
-        [KSPField]
+        [KSPField(isPersistant = true)]
         bool turnedOffEngineShroud;
 
         //Needed to call updateTexture a few times after changing segment count
@@ -388,6 +388,9 @@ namespace DecouplerShroud
         //Disables and reenables stock engine shrouds
         void setEngineShroudActivity()
         {
+            if (!shroudEnabled)
+                return;
+
             Part topPart = GetShroudedPart();
 
             if (topPart != null)
@@ -395,20 +398,10 @@ namespace DecouplerShroud
                 engineShrouds = topPart.GetComponents<ModuleJettison>();
                 if (engineShrouds.Length > 0)
                 {
-                    if (shroudEnabled)
+                    turnedOffEngineShroud = engineShrouds[0].shroudHideOverride;
+                    foreach (ModuleJettison engineShroud in engineShrouds)
                     {
-                        turnedOffEngineShroud = engineShrouds[0].shroudHideOverride;
-                        foreach (ModuleJettison engineShroud in engineShrouds)
-                        {
-                            engineShroud.shroudHideOverride = true;
-                        }
-                    }
-                    else
-                    {
-                        foreach (ModuleJettison engineShroud in engineShrouds)
-                        {
-                            engineShroud.shroudHideOverride = turnedOffEngineShroud;
-                        }
+                        engineShroud.shroudHideOverride = true;
                     }
                 }
             }
@@ -794,7 +787,7 @@ namespace DecouplerShroud
             if (GetShroudedPart() == null)
             {
                 destroyShroud();
-                if (engineShrouds != null)
+                if (shroudEnabled && engineShrouds != null)
                 {
                     if (engineShrouds.Length > 0)
                     {
